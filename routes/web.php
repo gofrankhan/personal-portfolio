@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
 // Home Slider All Route
 Route::middleware('auth')->group(function () {
     Route::get('/home/slide', [HomeSliderController::class, 'HomeSlider'])->name('home.slide');
-
+    Route::post('/update/slide', [HomeSliderController::class, 'UpdateSlider'])->name('update.slide');
 });
 
 require __DIR__.'/auth.php';
