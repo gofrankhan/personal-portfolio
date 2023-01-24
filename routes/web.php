@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Home\HomeSliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,12 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/change/password', [AdminController::class, 'ChangePassword'])->name('change.password');
     Route::post('/update/password', [AdminController::class, 'UpdatePassword'])->name('update.password');
+});
+
+// Home Slider All Route
+Route::middleware('auth')->group(function () {
+    Route::get('/home/slide', [HomeSliderController::class, 'HomeSlider'])->name('home.slide');
+
 });
 
 require __DIR__.'/auth.php';
