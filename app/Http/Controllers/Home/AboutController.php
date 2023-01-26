@@ -31,7 +31,7 @@ class AboutController extends Controller
                 'title' => $request->title,
                 'short_title' => $request->short_title,
                 'short_description' => $request->short_description,
-                'long_description' => $request->long_description,
+                'long_description' => $request->elm1,
                 'about_image' => $save_url,
             ]);
 
@@ -58,6 +58,14 @@ class AboutController extends Controller
             return redirect()->back()->with($notification);
         }
 
+
+    } //End Method
+
+    public function HomeAbout() : View
+    {
+
+        $aboutpage = About::find(1);
+        return view('frontend.about_page', compact('aboutpage'));
 
     } //End Method
 }

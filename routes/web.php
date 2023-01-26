@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/about/page', [AboutController::class, 'AboutPage'])->name('about.page');
     Route::post('/update/about', [AboutController::class, 'UpdateAbout'])->name('update.about');
+    Route::get('/about', [AboutController::class, 'HomeAbout'])->name('home.about');
 });
 
 require __DIR__.'/auth.php';
