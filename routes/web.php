@@ -53,6 +53,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/about/page', [AboutController::class, 'AboutPage'])->name('about.page');
     Route::post('/update/about', [AboutController::class, 'UpdateAbout'])->name('update.about');
     Route::get('/about', [AboutController::class, 'HomeAbout'])->name('home.about');
+
+    Route::get('/about/multi/image', [AboutController::class, 'AboutMultiImage'])->name('about.multi.image');
+    Route::post('/store/multi/image', [AboutController::class, 'StoreMultiImage'])->name('store.multi.image');
+    Route::get('/all/multi/image', [AboutController::class, 'AllMultiImage'])->name('all.multi.image');
 });
 
 require __DIR__.'/auth.php';
