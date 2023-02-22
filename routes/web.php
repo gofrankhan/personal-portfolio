@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/about/multi/image', [AboutController::class, 'AboutMultiImage'])->name('about.multi.image');
     Route::post('/store/multi/image', [AboutController::class, 'StoreMultiImage'])->name('store.multi.image');
     Route::get('/all/multi/image', [AboutController::class, 'AllMultiImage'])->name('all.multi.image');
+    Route::get('/edit/multi/image/{id}', [AboutController::class, 'EditMultiImage'])->name('edit.multi.image');
+    Route::post('/update/multi/image', [AboutController::class, 'UpdateMultiImage'])->name('update.multi.image');
 });
 
 require __DIR__.'/auth.php';

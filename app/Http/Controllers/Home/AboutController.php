@@ -50,6 +50,44 @@ class AboutController extends Controller
         return view('admin.about_page.all_multimage',compact('allMultiImage'));
     }
 
+
+    public function EditMultiImage($id){
+
+        $image = MultiImage::findorfail($id);
+        return view('admin.about_page.edit_image',compact('image'));
+    }
+
+    public function UpdateMultiImage(Request $request)
+    {
+        if($request->file('image')){
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();   //556333345345.jpg
+
+            $save_url = 'upload/multi/'.$name_gen;
+            Image::make($image)->resize(220, 220)->save($save_url);
+
+            MultiImage::findOrFail($request->id)->update([
+                'multi_image' => $save_url,
+                'updated_at' => Carbon::now(),
+            ]);
+
+            $notification = array(
+                'message' => 'Image updated with image successfully', 
+                'alert-type' => 'success'
+            );
+
+            return redirect()->back()->with($notification);
+
+        }else{
+            $notification = array(
+                'message' => 'No image selected!', 
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
+        }
+    }
+
     public function UpdateAbout(Request $request)
     {
         if($request->file('about_image')){
