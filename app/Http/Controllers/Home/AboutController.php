@@ -57,6 +57,23 @@ class AboutController extends Controller
         return view('admin.about_page.edit_image',compact('image'));
     }
 
+    public function DeleteMultiImage($id){
+
+        $multi = MultiImage::findOrFail($id);
+        $img = $multi->multi_image;
+        unlink($img);
+
+        MultiImage::findOrFail($id)->delete();
+
+         $notification = array(
+            'message' => 'Multi Image Deleted Successfully', 
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+     }// End Method 
+
     public function UpdateMultiImage(Request $request)
     {
         if($request->file('image')){
