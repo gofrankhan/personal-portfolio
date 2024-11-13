@@ -23,7 +23,7 @@
                         <label for="showImage" class="col-sm-2 col-form-label">Preview</label>
                         <div class="col-sm-10">
                             <img class="rounded avatar-lg" name="showImage" id="showImage" src="{{ (!empty($aboutpage->about_image))? url($aboutpage->about_image)
-                        :url('upload/no_image.jpeg')}}" alt="Card image cap">
+                        :url('upload/no_image.jpg')}}" alt="Card image cap">
                         </div>
                     </div>
 

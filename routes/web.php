@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\AboutController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,13 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/home/slide', [HomeSliderController::class, 'HomeSlider'])->name('home.slide');
     Route::post('/update/slide', [HomeSliderController::class, 'UpdateSlider'])->name('update.slide');
+});
+
+// Home Slider All Route
+Route::middleware('auth')->group(function () {
+    Route::get('/all/portfolio', [PortfolioController::class, 'AllPortfolio'])->name('all.portfolio');
+    Route::get('/add/portfolio', [PortfolioController::class, 'AddPortfolio'])->name('add.portfolio');
+    Route::post('/store/portfolio', [PortfolioController::class, 'StorePortfolio'])->name('save.portfolio');
 });
 
 // About Page All Route
