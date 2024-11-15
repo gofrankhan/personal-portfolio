@@ -53,7 +53,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/all/portfolio', [PortfolioController::class, 'AllPortfolio'])->name('all.portfolio');
     Route::get('/add/portfolio', [PortfolioController::class, 'AddPortfolio'])->name('add.portfolio');
-    Route::post('/store/portfolio', [PortfolioController::class, 'StorePortfolio'])->name('save.portfolio');
+    Route::post('/store/portfolio', [PortfolioController::class, 'StorePortfolio'])->name('store.portfolio');
+    Route::get('/edit/portfolio/{id}', [PortfolioController::class, 'EditPortfolio'])->name('edit.portfolio');
+    Route::post('/update/portfolio', [PortfolioController::class, 'UpdatePortfolio'])->name('update.portfolio');
 });
 
 // About Page All Route

@@ -25,7 +25,6 @@
                                 <th>Portfolio Name</th>
                                 <th>Portfolio Title</th>
                                 <th>Portfolio Image</th>
-                                <th>Portfolio Description</th>
                                 <th>Action</th>
                             </thead>
                             <tbody>
@@ -35,10 +34,9 @@
                                     <td> {{ $i++}} </td>
                                     <td> {{ $item->portfolio_name}} </td>
                                     <td> {{ $item->portfolio_title}} </td>
-                                    <td>  {{ $item->portfolio_description}} </td>
                                     <td> <img src="{{ asset($item->portfolio_image) }}" style="width: 60px; height: 50px;"> </td>
                                     <td>  
-                                        <a href="{{ route('edit.multi.image', $item->id)}}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
+                                        <a href="{{ route('edit.portfolio', $item->id)}}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
                                         <a href="{{ route('delete.multi.image',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a>
                                     </td>
                                 </tr>
