@@ -78,6 +78,8 @@ Route::middleware('auth')->group(function () {
 // Blog Category Route
 Route::middleware('auth')->group(function () {
     Route::get('/all/blog/category', [BlogCategoryController::class, 'AllBlogCategory'])->name('all.blog.category');
+    Route::get('/add/blog/category', [BlogCategoryController::class, 'AddBlogCategory'])->name('add.blog.category');
+    Route::post('/store/blog/category', [BlogCategoryController::class, 'StoreBlogCategory'])->name('store.blog.category');
 });
 
 require __DIR__.'/auth.php';
