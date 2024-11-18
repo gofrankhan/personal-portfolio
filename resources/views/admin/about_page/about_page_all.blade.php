@@ -7,8 +7,17 @@
         
         <!-- start page title -->
         <div class="row">
-            <div class="col-lg-8">
-                <h4 class="card-title">About Page</h4><hr><hr>
+            <div class="col-12">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0">About Page</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+        <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
                 <form method="post" action="{{ route('update.about') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3">
@@ -56,6 +65,7 @@
 
                     <input type="submit" herf="{{ route('admin.profile') }}" class="btn btn-primary btn-rounded waves-effect waves-light" value="Update About Page">
                 </form>
+            </div>
             </div>
         </div>
     </div>
