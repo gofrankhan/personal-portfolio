@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\BlogCategoryController;
+use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\AboutController;
 use Illuminate\Support\Facades\Route;
 
@@ -83,6 +84,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit/blog/category/{id}', [BlogCategoryController::class, 'EditBlogCategory'])->name('edit.blog.category');
     Route::post('/update/blog/category/{id}', [BlogCategoryController::class, 'UpdateBlogCategory'])->name('update.blog.category');
     Route::get('/delete/blog/category/{id}', [BlogCategoryController::class, 'DeleteBlogCategory'])->name('delete.blog.category');
+});
+
+// Blog All Route
+Route::middleware('auth')->group(function () {
+    Route::get('/all/blogs', [BlogController::class, 'AllBlogs'])->name('all.blogs');
+    Route::get('/add/blogs', [BlogController::class, 'AddBlogs'])->name('add.blogs');
 });
 
 require __DIR__.'/auth.php';
