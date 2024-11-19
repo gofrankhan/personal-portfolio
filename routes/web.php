@@ -90,6 +90,10 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/all/blogs', [BlogController::class, 'AllBlogs'])->name('all.blogs');
     Route::get('/add/blogs', [BlogController::class, 'AddBlogs'])->name('add.blogs');
+    Route::get('/edit/blogs/{id}', [BlogController::class, 'EditBlogs'])->name('edit.blogs');
+    Route::post('/store/blogs', [BlogController::class, 'StoreBlogs'])->name('store.blogs');
+    Route::get('/delete/blogs/{id}', [BlogController::class, 'DeleteBlogs'])->name('delete.blogs');
+    Route::post('/update/blogs', [BlogController::class, 'UpdateBlogs'])->name('update.blogs');
 });
 
 require __DIR__.'/auth.php';

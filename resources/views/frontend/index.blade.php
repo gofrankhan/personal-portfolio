@@ -311,6 +311,8 @@
 <!-- testimonial-area-end -->
 
 <!-- blog-area -->
+
+@include('frontend.home_all.home_blog')
 <section class="blog">
     <div class="container">
         <div class="row gx-0 justify-content-center">

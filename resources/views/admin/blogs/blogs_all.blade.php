@@ -22,7 +22,7 @@
                             <tr>
                                 <th>Sl</th>
                                 <th>Blog Category</th>
-                                <th>Blog Title</th>
+                                <th style="width:150px;">Blog Title</th>
                                 <th>Blog Tags</th>
                                 <th>Blog Image</th>
                                 <th>Action</th>
@@ -32,13 +32,13 @@
                                 @foreach($blogs as $item)
                                 <tr>
                                     <td> {{ $i++}} </td>
-                                    <td> {{ $item->blog_category_id}} </td>
-                                    <td> {{ $item->blog_title}} </td>
+                                    <td> {{ $item['category']['blog_category']}} </td>
+                                    <td style="width:150px;"> {{ $item->blog_title}} </td>
                                     <td> {{ $item->blog_tags}} </td>
                                     <td> <img src="{{ asset($item->blog_image) }}" style="width: 60px; height: 50px;"> </td>
                                     <td>  
-                                        <a href="{{ route('edit.blog', $item->id)}}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
-                                        <a href="{{ route('delete.blog',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a>
+                                        <a href="{{ route('edit.blogs', $item->id)}}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
+                                        <a href="{{ route('delete.blogs',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a>
                                     </td>
                                 </tr>
                                 @endforeach
