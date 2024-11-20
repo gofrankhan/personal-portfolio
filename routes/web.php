@@ -94,6 +94,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/store/blogs', [BlogController::class, 'StoreBlogs'])->name('store.blogs');
     Route::get('/delete/blogs/{id}', [BlogController::class, 'DeleteBlogs'])->name('delete.blogs');
     Route::post('/update/blogs', [BlogController::class, 'UpdateBlogs'])->name('update.blogs');
+    Route::get('/blog/details/{id}', [BlogController::class, 'BlogDetails'])->name('blog.details');
 });
 
 require __DIR__.'/auth.php';

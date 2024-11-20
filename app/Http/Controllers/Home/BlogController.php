@@ -48,7 +48,7 @@ class BlogController extends Controller
         $blogs = Blog::findOrFail($id);
         $category = BlogCategory::orderBy('blog_category', 'asc')->get();
         return view('admin.blogs.blogs_edit', compact('blogs', 'category'));
-    }
+    }  //End of Method
 
     public function UpdateBlogs(Request $request){
         $blog_id = $request->id;
@@ -94,5 +94,12 @@ public function DeleteBlogs($id){
        );
        return redirect()->back()->with($notification);       
     }// End Method 
+
+    public function BlogDetails($id){
+        $allblogs = Blog::latest()->limit(5)->get();
+        $blogs = Blog::findOrFail($id);
+        $category = BlogCategory::orderBy('blog_category', 'asc')->get();
+        return view('frontend.blog_details', compact('blogs', 'category', 'allblogs' ));
+    }  //End of Method
 
 }
