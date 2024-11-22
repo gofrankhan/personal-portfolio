@@ -224,7 +224,7 @@
                             @foreach($allblogs as $blg)
                             <li class="rc__post__item">
                                 <div class="rc__post__thumb">
-                                    <a href="{{ route('blog.details', $blg->id)}}"><img src="{{ asset('$blg->blog_image')}}" alt="" style="width: 90px; height: 90px;"></a>
+                                    <a href="{{ route('blog.details', $blg->id)}}"><img src="{{ asset($blg->blog_image)}}" alt="" style="width: 90px; height: 90px;"></a>
                                 </div>
                                 <div class="rc__post__content">
                                     <h5 class="title"><a href="{{ route('blog.details', $blg->id)}}">{{ $blg->blog_title}}</a></h5>
@@ -238,7 +238,7 @@
                         <h4 class="widget-title">Categories</h4>
                         <ul class="sidebar__cat">
                             @foreach($category as $cat)
-                            <li class="sidebar__cat__item"><a href="blog.html">{{ $cat->blog_category }}</a></li>
+                            <li class="sidebar__cat__item"><a href="{{ route('category.blog', $cat->id)}}">{{ $cat->blog_category }}</a></li>
                             @endforeach
                         </ul>
                     </div>

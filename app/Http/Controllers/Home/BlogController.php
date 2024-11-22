@@ -100,6 +100,16 @@ public function DeleteBlogs($id){
         $blogs = Blog::findOrFail($id);
         $category = BlogCategory::orderBy('blog_category', 'asc')->get();
         return view('frontend.blog_details', compact('blogs', 'category', 'allblogs' ));
+    }  //End of 
+    
+    public function CategoryBlog($id){
+        $allblogs = Blog::latest()->limit(5)->get();
+        if($id == 'all')
+            $blogpost = Blog::latest()->get();
+        else
+            $blogpost = Blog::where('blog_category_id', $id)->orderBy('id', 'DESC')->get();
+        $category = BlogCategory::orderBy('blog_category', 'asc')->get();
+        return view('frontend.cat_blog_details', compact('blogpost', 'category', 'allblogs' ));
     }  //End of Method
 
 }
