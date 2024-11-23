@@ -28,6 +28,9 @@
                 <div class="card-body">
                 <form method="post" action="{{ route('update.footer') }}" enctype="multipart/form-data">
                     @csrf
+                    
+                    <input type="hidden" name="id" value="{{ $footer_all->id }}">
+
                     <div class="row mb-3">
                         <label for="number" class="col-sm-2 col-form-label">Number</label>
                         <div class="col-sm-10">
