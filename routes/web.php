@@ -7,7 +7,9 @@ use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\FooterController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +98,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/update/blogs', [BlogController::class, 'UpdateBlogs'])->name('update.blogs');
     Route::get('/blog/details/{id}', [BlogController::class, 'BlogDetails'])->name('blog.details');
     Route::get('/category/blog/{id}', [BlogController::class, 'CategoryBlog'])->name('category.blog');
+});
+
+// Footer All Route
+Route::middleware('auth')->group(function () {
+    Route::get('/footer/sertup', [FooterController::class, 'FooterSetup'])->name('footer.setup');
+    Route::get('/edit/footer', [FooterController::class, 'EditFooter'])->name('edit.footer');
+    Route::post('/update/footer', [FooterController::class, 'UpdateFooter'])->name('update.footer');
 });
 
 require __DIR__.'/auth.php';

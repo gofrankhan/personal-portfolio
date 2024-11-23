@@ -59,7 +59,7 @@
                 </ul>
             </li>
 
-            li>
+            <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                     <i class="ri-mail-send-line"></i>
                     <span>Blog Setup</span>
@@ -67,6 +67,16 @@
                 <ul class="sub-menu" aria-expanded="false">
                     <li><a href="{{ route('all.blogs')}}"> All Blog</a></li>
                     <li><a href="{{ route('add.blogs')}}">Add Blog</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <i class="ri-mail-send-line"></i>
+                    <span>Footer Setup</span>
+                </a>
+                <ul class="sub-menu" aria-expanded="false">
+                    <li><a href="{{ route('footer.setup')}}">Setup Footer</a></li>
                 </ul>
             </li>
 
