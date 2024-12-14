@@ -8,6 +8,7 @@ use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\FooterController;
+use App\Http\Controllers\Home\ContactController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -105,6 +106,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/footer/setup', [FooterController::class, 'FooterSetup'])->name('footer.setup');
     Route::get('/edit/footer', [FooterController::class, 'EditFooter'])->name('edit.footer');
     Route::post('/update/footer', [FooterController::class, 'UpdateFooter'])->name('update.footer');
+});
+
+// Contact All Route
+Route::middleware('auth')->group(function () {
+    Route::get('/contact', [ContactController::class, 'Contact'])->name('contact.me');
 });
 
 require __DIR__.'/auth.php';
