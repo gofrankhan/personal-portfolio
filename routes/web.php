@@ -112,6 +112,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/contact', [ContactController::class, 'Contact'])->name('contact.me');
     Route::post('/store/message', [ContactController::class, 'StoreMessage'])->name('store.message');
+    Route::get('/contact/message', [ContactController::class, 'ContactMessage'])->name('contact.message');   
+    Route::get('/delete/message/{id}', [ContactController::class,'DeleteMessage'])->name('delete.message'); 
 });
 
 require __DIR__.'/auth.php';
