@@ -9,6 +9,7 @@ use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
+use App\Http\Controllers\Demo\DemoController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,8 +24,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
+
+// Home Slider All Route
+Route::middleware('auth')->group(function () {
+    Route::get('/', [DemoController::class, 'HomeMain'])->name('home');
+    // Route::get('/home/slide', [HomeSliderController::class, 'HomeSlider'])->name('home.slide');
+    // Route::post('/update/slide', [HomeSliderController::class, 'UpdateSlider'])->name('update.slide');
 });
 
 Route::get('/dashboard', function () {
