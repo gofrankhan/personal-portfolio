@@ -40,7 +40,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/profile', [AdminController::class, 'Profile'])->name('admin.profile');
     Route::get('/edit/profile', [AdminController::class, 'EditProfile'])->name('edit.profile');
     Route::post('/store/profile', [AdminController::class, 'StoreProfile'])->name('store.profile');
-    
+
     Route::get('/change/password', [AdminController::class, 'ChangePassword'])->name('change.password');
     Route::post('/update/password', [AdminController::class, 'UpdatePassword'])->name('update.password');
 });
@@ -84,7 +84,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/all/multi/image', [AboutController::class, 'AllMultiImage'])->name('all.multi.image');
     Route::get('/edit/multi/image/{id}', [AboutController::class, 'EditMultiImage'])->name('edit.multi.image');
     Route::post('/update/multi/image', [AboutController::class, 'UpdateMultiImage'])->name('update.multi.image');
-    Route::get('/delete/multi/image/{id}',[AboutController::class,  'DeleteMultiImage'])->name('delete.multi.image');
+    Route::get('/delete/multi/image/{id}', [AboutController::class,  'DeleteMultiImage'])->name('delete.multi.image');
 });
 
 // Blog Category Route
@@ -107,6 +107,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/update/blogs', [BlogController::class, 'UpdateBlogs'])->name('update.blogs');
     Route::get('/blog/details/{id}', [BlogController::class, 'BlogDetails'])->name('blog.details');
     Route::get('/category/blog/{id}', [BlogController::class, 'CategoryBlog'])->name('category.blog');
+    Route::get('/blog', [BlogController::class, 'HomeBlog'])->name('home.blog');
 });
 
 // Footer All Route
@@ -120,8 +121,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/contact', [ContactController::class, 'Contact'])->name('contact.me');
     Route::post('/store/message', [ContactController::class, 'StoreMessage'])->name('store.message');
-    Route::get('/contact/message', [ContactController::class, 'ContactMessage'])->name('contact.message');   
-    Route::get('/delete/message/{id}', [ContactController::class,'DeleteMessage'])->name('delete.message'); 
+    Route::get('/contact/message', [ContactController::class, 'ContactMessage'])->name('contact.message');
+    Route::get('/delete/message/{id}', [ContactController::class, 'DeleteMessage'])->name('delete.message');
 });
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';

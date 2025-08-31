@@ -6,25 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Models\HomeSlide;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Image;
+use Intervention\Image\Facades\Image;
 
 class HomeSliderController extends Controller
 {
-    public function HomeSlider() : View
+    public function HomeSlider(): View
     {
 
         $homeslide = HomeSlide::find(1);
         return view('admin.home_slide.home_slide_all', compact('homeslide'));
-
     } //End Method
 
     public function UpdateSlider(Request $request)
     {
-        if($request->file('home_slide')){
+        if ($request->file('home_slide')) {
             $image = $request->file('home_slide');
-            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();   //556333345345.jpg
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();   //556333345345.jpg
 
-            $save_url = 'upload/home_slide/'.$name_gen;
+            $save_url = 'upload/home_slide/' . $name_gen;
             Image::make($image)->resize(636, 852)->save($save_url);
 
             HomeSlide::findOrFail(1)->update([
@@ -35,13 +34,12 @@ class HomeSliderController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Home Slider Updated with Image Successfully', 
+                'message' => 'Home Slider Updated with Image Successfully',
                 'alert-type' => 'success'
             );
 
             return redirect()->back()->with($notification);
-
-        }else{
+        } else {
             HomeSlide::findOrFail(1)->update([
                 'title' => $request->title,
                 'short_title' => $request->short_title,
@@ -49,13 +47,11 @@ class HomeSliderController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Home Slider Updated without Image Successfully', 
+                'message' => 'Home Slider Updated without Image Successfully',
                 'alert-type' => 'success'
             );
 
             return redirect()->back()->with($notification);
         }
-
-
     } //End Method
 }
